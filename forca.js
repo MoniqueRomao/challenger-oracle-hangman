@@ -1,16 +1,35 @@
 var quadro = document.querySelector("#forca");
-
+var btnInicia = document.querySelector("#iniciar-jogo");
 var ctx = quadro.getContext("2d");
-
 ctx.lineWidth = 2;
 
-desenhaPoste();
-desenhaCabeca();
-desenhaTronco();
-desenhaPernaEsquerda();
-desenhaPernaDireita();
-desenhaBracoEsquerdo();
-desenhaBracoDireito();
+btnInicia.addEventListener("click", function() {
+    desenhaPoste();
+})
+
+
+function erroDesenha(erro){
+    if(erro == 1){
+        desenhaCabeca();
+    }
+    if (erro == 2){
+        desenhaTronco();
+    }
+    if (erro == 3){
+        desenhaPernaDireita();
+    }
+    if (erro == 4){
+        desenhaPernaEsquerda();
+    }
+    if (erro == 5){
+        desenhaBracoDireito();
+    }
+    if (erro == 6){
+        desenhaBracoEsquerdo();
+    }
+
+}
+
 
 function desenhaPoste() {
     ctx.beginPath();
@@ -34,27 +53,27 @@ function desenhaTronco(){
     ctx.stroke();
     ctx.closePath();
 }
-function desenhaPernaEsquerda(){
+function desenhaPernaDireita(){
     ctx.beginPath();
     ctx.moveTo(200, 535);
     ctx.lineTo(155, 610);
     ctx.stroke();
     ctx.closePath();
 }
-function desenhaPernaDireita(){
+function desenhaPernaEsquerda(){
     ctx.beginPath();
     ctx.moveTo(200, 535);
     ctx.lineTo(245, 610);
     ctx.stroke();
     ctx.closePath();
 }
-function desenhaBracoEsquerdo(){
+function desenhaBracoDireito(){
     ctx.beginPath();
     ctx.moveTo(200, 401);
     ctx.lineTo(155, 476);
     ctx.stroke();
 }
-function desenhaBracoDireito(){
+function desenhaBracoEsquerdo(){
     ctx.beginPath();
     ctx.moveTo(200, 401);
     ctx.lineTo(245, 476);
