@@ -1,6 +1,6 @@
 var quadro = document.querySelector("#forca");
 var btnInicia = document.querySelector("#iniciar-jogo");
-
+var tecla;
 btnInicia.addEventListener("click", function() {
     var erros = 0;
     desenhaPoste();
@@ -14,8 +14,16 @@ btnInicia.addEventListener("click", function() {
         x1 += 100;
         x2 += 100;
     }
+    document.querySelector("body").addEventListener("keydown", verificaTecla);
 });
-
+function verificaTecla(){
+    var char = event.keyCode;
+    if (char >= 65 && char <= 90){
+        tecla = String.fromCharCode(char);
+        //chamar a logica da função aqui
+    }
+    
+}
 
 
 function erroDesenha(erros){
