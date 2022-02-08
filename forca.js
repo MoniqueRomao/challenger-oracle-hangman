@@ -1,28 +1,60 @@
 var quadro = document.querySelector("#forca");
 var btnInicia = document.querySelector("#iniciar-jogo");
-var tecla;
-btnInicia.addEventListener("click", function() {
-    var erros = 0;
-    desenhaPoste();
-    var x1 = 100;
-    var x2 = 160;
-    var palavra = definePalavra();
-    console.log(palavra);
-    console.log(usadas);
-    for(var i = 0; i < palavra.length; i++){
-        desenhaLinha(x1, x2);
-        x1 += 100;
-        x2 += 100;
-    }
-    document.querySelector("body").addEventListener("keydown", verificaTecla);
-});
-function verificaTecla(){
-    var char = event.keyCode;
-    if (char >= 65 && char <= 90){
-        tecla = String.fromCharCode(char);
-        //chamar a logica da função aqui
+var jogando = false;
+var erros = 0;
+var palavra;
+var letrasErradas = [];
+
+function inicia () {
+    if(usadas.length == palavras.length){
+        alert("Todas as palavras foram usadas");
+        location.reload(true);
+    } else{
+        jogando = true;
+        desenhaPoste();
+        var x1 = 100;
+        var x2 = 160;
+        palavra = definePalavra();
+        console.log(palavra);
+        console.log(usadas);
+        for(var i = 0; i < palavra.length; i++){
+            desenhaLinha(x1, x2);
+            x1 += 100;
+            x2 += 100;
+        }
     }
     
+    
+};
+function verificaTecla(){
+    if (jogando){
+        var char = event.keyCode;
+        if (char >= 65 && char <= 90){
+            var tecla = String.fromCharCode(char);
+            console.log(tecla)
+            comparaPalavra();
+        }
+    
+    } else {
+        alert("Você não iniciou o jogo");
+    }
+    
+}
+function comparaPalavra() {
+    var l = tecla;
+    if(palavra.includes(l)) {
+        for (var i = 0; i < palavra.length; i++){
+            if(palavra[i] == l){
+                letraCorreta(l, i);
+            }
+        }
+    } 
+    if (!palavra.includes(l) ) {
+        erros++;
+        letraIncorreta(l, erros);
+        erroDesenha(erros);
+        
+    }
 }
 
 
