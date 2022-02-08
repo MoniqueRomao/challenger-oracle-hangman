@@ -14,6 +14,7 @@ function letraCorreta(l, i) {
     ctx.beginPath();
     var x = 115 + (100 * i)
     ctx.font = "50px Verdana";
+    ctx.fillStyle = "black";
     ctx.fillText(l, x, 750, 50);
     ctx.closePath();
 }
