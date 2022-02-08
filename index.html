@@ -7,10 +7,10 @@
     <title>Jogo da Forca</title>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
+  <body onkeydown="verificaTecla()">
     <div style="text-align:center; margin: 50px 0px;">
       <h1 class="titulo">Jogo da Forca</h1>
-      <button class="btn" id="iniciar-jogo">INICIAR JOGO</button>
+      <button class="btn" id="iniciar-jogo" onclick="inicia()">INICIAR JOGO</button>
     </div>
     <div style="text-align:center">
       <input class="text-input" type="text" id="input-nova-palavra" placeholder="Escreva uma nova palavra">
