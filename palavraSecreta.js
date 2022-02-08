@@ -17,11 +17,11 @@ function definePalavra () {
 
 }
 function verificaIndice() {
-    var i = Math.round(Math.random()*(palavras.length - 1));
-    if (!usadas.includes(i)){
-        usadas.push(i);
+    var i = Math.round(Math.random()*(palavras.length - 1)); //sorteia palavra
+    if (!usadas.includes(i)){ //verifica se já foi usada
+        usadas.push(i); 
         return i;
     } else {
-        verificaIndice();
+        verificaIndice(); // chama ela mesma se estiver no array
     }
 }
