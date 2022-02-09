@@ -2,15 +2,14 @@ var quadro = document.querySelector("#forca");
 var ctx = quadro.getContext("2d");
 ctx.lineWidth = 2;
 
-
 function desenhaLinha(x1, x2) {
     ctx.beginPath();
-    ctx.moveTo(x1, 750); // x1=100
-    ctx.lineTo(x2, 750); // x2=160
+    ctx.moveTo(x1, 750); 
+    ctx.lineTo(x2, 750); 
     ctx.stroke();
     ctx.closePath();
 }
-function letraCorreta(l, i) {
+function exibePalavra(l, i) {
     ctx.beginPath();
     var x = 115 + (100 * i)
     ctx.font = "50px Verdana";
