@@ -5,6 +5,7 @@ var tecla;
 var erros = 0;
 var palavra;
 var letrasErradas = [];
+var letrasCertas = [];
 
 function inicia () {
     if(usadas.length == palavras.length){
@@ -49,16 +50,18 @@ function comparaPalavra() {
                 letraCorreta(l, i);
             }
         }
+        letrasCertas.push(l);
     } 
     if (!palavra.includes(l) && !letrasErradas.includes(l)) {
         erros++;
         letraIncorreta(l, erros);
-        erroDesenha(erros);
         letrasErradas.push(l);
-        
+        erroDesenha(erros);
+    }
+    if (palavra.length == letrasCertas.length){
+        venceu();
     }
 }
-
 
 function erroDesenha(erros){
     if(erros == 1){
@@ -85,8 +88,17 @@ function erroDesenha(erros){
 
 function perdeu(){
     letrasErradas = [];
+    letrasCertas = [];
     erros = 0;
     jogando = false;
     alert("Game Over");
 
+}
+
+function venceu(){
+    letrasErradas = [];
+    letrasCertas = [];
+    erros = 0;
+    jogando = false;
+    alert("Você venceu!");
 }
