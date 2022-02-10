@@ -25,6 +25,7 @@ function letraIncorreta(l, erros){
 }
 function desenhaPoste() {
     ctx.beginPath();
+    ctx.lineWidth = 20;
     ctx.moveTo(30, 690);
     ctx.lineTo(30, 250);
     ctx.lineTo(200, 250);

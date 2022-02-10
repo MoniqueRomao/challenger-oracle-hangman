@@ -5,6 +5,14 @@
   margin: auto;
 
 }
+.bg {
+  background: url(desertBackground.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+}
 
 .btn {
   border: 0;
