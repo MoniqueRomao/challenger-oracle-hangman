@@ -6,12 +6,18 @@
 
 }
 .bg {
-  background: url(desertBackground.jpg);
+  background: url(img/desertBackground.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 
+}
+#forca {
+  background: url(img/forca.png);
+  background-attachment: unset;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .btn {

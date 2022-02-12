@@ -1,6 +1,6 @@
 var quadro = document.querySelector("#forca");
 var ctx = quadro.getContext("2d");
-ctx.lineWidth = 2;
+ctx.lineWidth = 5;
 
 function desenhaLinha(x1, x2) {
     ctx.beginPath();
@@ -13,7 +13,7 @@ function exibePalavra(l, i) {
     ctx.beginPath();
     var x = 115 + (100 * i)
     ctx.font = "50px Verdana";
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.fillText(l, x, 750, 50);
     ctx.closePath();
 }
@@ -25,7 +25,6 @@ function letraIncorreta(l, erros){
 }
 function desenhaPoste() {
     ctx.beginPath();
-    ctx.lineWidth = 20;
     ctx.moveTo(30, 690);
     ctx.lineTo(30, 250);
     ctx.lineTo(200, 250);
