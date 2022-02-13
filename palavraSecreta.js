@@ -22,6 +22,6 @@ function verificaIndice() {
         usadas.push(i); 
         return i;
     } else {
-        verificaIndice(); // chama ela mesma se estiver no array
+        verificaIndice(); // recall se já foi usada
     }
 }

@@ -11,16 +11,8 @@ function inicia () {
         return location.reload(true);
     } else{
         jogando = true;
-        desenhaPoste();
-        var x1 = 100;
-        var x2 = 160;
         palavra = definePalavra();
-
-        for(var i = 0; i < palavra.length; i++){
-            desenhaLinha(x1, x2);
-            x1 += 100;
-            x2 += 100;
-        }
+        mostraPalavra();
     }
     
     
@@ -41,7 +33,7 @@ function comparaPalavra() {
     if(palavra.includes(l)) {
         for (var i = 0; i < palavra.length; i++){
             if(palavra[i] == l){
-                exibePalavra(l, i);
+                mostra;
             }
         }
         letrasCertas.push(l);
@@ -54,6 +46,14 @@ function comparaPalavra() {
     }
     if (palavra.length == letrasCertas.length){
         venceu();
+    }
+}
+function mostraPalavra(){
+    const palavraTela = document.querySelector("#palavra-secreta");
+    palavraTela.innerHTML = "";
+
+    for(var i = 0; i < palavra.length; i++){
+        palavraTela.appendChild("letra", "palavra[i]");
     }
 }
 
