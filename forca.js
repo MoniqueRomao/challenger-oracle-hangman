@@ -50,32 +50,33 @@ function comparaPalavra() {
         erros++;
         letraIncorreta(l, erros);
         letrasErradas.push(l);
-        erroDesenha(erros);
+        erroDesenha();
     }
     if (palavra.length == letrasCertas.length){
         venceu();
     }
 }
 
-function erroDesenha(erros){
-    if(erros == 1){
-        desenhaCabeca();
-    }
-    if (erros == 2){
-        desenhaTronco();
-    }
-    if (erros == 3){
-        desenhaPernaDireita();
-    }
-    if (erros == 4){
-        desenhaPernaEsquerda();
-    }
-    if (erros == 5){
-        desenhaBracoDireito();
-    }
-    if (erros == 6){
-        desenhaBracoEsquerdo();
-        perdeu();
+function erroDesenha(){
+    switch(erros){
+        case 1: 
+            document.getElementById("imagem").style.background = "url('./img/forca_cabeca.png')";
+            break;
+        case 2: 
+            document.getElementById("imagem").style.background = "url('./img/forca_tronco.png')";
+            break;
+        case 3: 
+            document.getElementsById("imagem").style.background = "url('./img/forca_bracoDireito.png')";
+            break;
+        case 4: 
+            document.getElementsById("imagem").style.background = "url('./img/forca_bracoEsquerdo.png')";
+            break;
+        case 5: 
+            document.getElementsById("imagem").style.background = "url('./img/forca_pernaDireita.png')";
+            break;
+        case 6: 
+            document.getElementById("imagem").style.background = "url('./img/forca_pernaEsquerda.png')";
+            break;
     }
 }
 

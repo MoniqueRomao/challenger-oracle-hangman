@@ -5,21 +5,58 @@
   margin: auto;
 
 }
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
 .bg {
-  background: url(img/desertBackground.jpg);
+  background: url("img/desertBackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 
 }
-#forca {
-  background: url(img/forca.png);
+
+#imagem{
+  width: 436px;
+  height: 338px;
+  background-image: url("img/forca.png");
   background-attachment: unset;
-  background-position: center;
+  margin: auto;
   background-repeat: no-repeat;
 }
-
+#palavra-secreta{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  font-size: 2.5em;
+  margin-top: 15px;
+}
+.letra{
+  width: 2em;
+  text-align: center;
+  border-bottom: 3px solid #228b22;
+  color: white;
+  padding: 3px;
+  margin-left: 7px;
+}
+#teclado{
+  margin-top: 30px;
+}
+.teclas button{
+  width: 44px;
+  height: 44px;
+  margin: 2px;
+  margin-bottom: 5px;
+  box-shadow: 0px 2px 8px dimgray;
+  border-radius: 2em;
+}
 .btn {
   border: 0;
   color: white;
