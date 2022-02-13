@@ -1,10 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 
-.titulo {
-  padding: 15px;
-  width: 30vw;
-  margin: auto;
 
-}
 .container{
   display: flex;
   justify-content: center;
@@ -29,6 +25,7 @@
   background-attachment: unset;
   margin: auto;
   background-repeat: no-repeat;
+  margin-bottom: 40px;
 }
 #palavra-secreta{
   display: flex;
@@ -37,28 +34,33 @@
   align-items: center;
   font-size: 2.5em;
   margin-top: 15px;
+  font-family: 'Courier Prime', monospace;
 }
+
 .letra{
   width: 2em;
   text-align: center;
-  border-bottom: 3px solid #228b22;
+  border-bottom: 3px solid white;
   color: white;
   padding: 3px;
   margin-left: 7px;
+  margin-bottom: 20px;
 }
 #teclado{
-  margin-top: 30px;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  font-family: 'Courier Prime', monospace;
 }
 .teclas button{
   width: 44px;
   height: 44px;
   margin: 2px;
-  margin-bottom: 5px;
-  box-shadow: 0px 2px 8px dimgray;
+  margin-bottom: 10px;
+  box-shadow: 0px 3px 8px dimgray;
   border-radius: 2em;
-  border: 1px solid #f3f2e9;
+  border: 1px solid dimgray;
   font-weight: 900;
-  background-color: #9c9c8d;
+  background-color: #556b2f;
   color: #f3f2e9;
 }
 .teclas button:hover{
