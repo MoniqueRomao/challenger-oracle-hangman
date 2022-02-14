@@ -2,6 +2,7 @@ var jogando = false;
 var erros = 0;
 var palavra;
 var palavraForca = [];
+var letrasCertas = [];
 
 function inicia () {
     if(usadas.length == palavras.length){
@@ -20,7 +21,7 @@ function inicia () {
 function verificaTecla(l){
     if (jogando){
         mudandoCorTecla("tecla-" + l);
-        
+        comparaPalavra(l);
     }
 }
 
@@ -30,17 +31,16 @@ function mudandoCorTecla(tecla){
     }
 }
 
-function comparaPalavra() {
-    var l = tecla;
+function comparaPalavra(l) {
     if(palavra.includes(l)) {
         for (var i = 0; i < palavra.length; i++){
             if(palavra[i] == l){
-                mostra;
+                palavraForca[i] = l;
             }
         }
         letrasCertas.push(l);
     } 
-    if (!palavra.includes(l) && !letrasErradas.includes(l)) {
+    if (!palavra.includes(l)) {
         erros++;
         erroDesenha();
     }
@@ -72,13 +72,13 @@ function erroDesenha(){
             document.getElementById("imagem").style.background = "url('./img/forca_tronco.png')";
             break;
         case 3: 
-            document.getElementsById("imagem").style.background = "url('./img/forca_bracoDireito.png')";
+            document.getElementById("imagem").style.background = "url('./img/forca_bracoDireito.png')";
             break;
         case 4: 
-            document.getElementsById("imagem").style.background = "url('./img/forca_bracoEsquerdo.png')";
+            document.getElementById("imagem").style.background = "url('./img/forca_bracoEsquerdo.png')";
             break;
         case 5: 
-            document.getElementsById("imagem").style.background = "url('./img/forca_pernaDireita.png')";
+            document.getElementById("imagem").style.background = "url('./img/forca_pernaDireita.png')";
             break;
         case 6: 
             document.getElementById("imagem").style.background = "url('./img/forca_pernaEsquerda.png')";
