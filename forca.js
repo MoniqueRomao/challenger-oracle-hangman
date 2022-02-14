@@ -11,7 +11,7 @@ function inicia () {
     } else{
         jogando = true;
         palavra = definePalavra();
-        mostraPalavra();
+        mostraPalavra()
         console.log(palavra);
     }
     
@@ -22,6 +22,7 @@ function verificaTecla(l){
     if (jogando){
         mudandoCorTecla("tecla-" + l);
         comparaPalavra(l);
+        mostraPalavra();
     }
 }
 
