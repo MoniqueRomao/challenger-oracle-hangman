@@ -20,6 +20,7 @@ function inicia () {
 
 function verificaTecla(l){
     if (jogando){
+        document.getElementById("tecla-" + l).disabled = true; //trava letras clicadas
         mudandoCorTecla("tecla-" + l);
         comparaPalavra(l);
         mostraPalavra();
@@ -28,7 +29,7 @@ function verificaTecla(l){
 
 function mudandoCorTecla(tecla){
     if(erros < 6){
-        document.getElementById(tecla).style.background = "#831d1c";
+        document.getElementById(tecla).style.background = "#831d1c"; //tecla na cor marsala
     }
 }
 
@@ -37,9 +38,9 @@ function comparaPalavra(l) {
         for (var i = 0; i < palavra.length; i++){
             if(palavra[i] == l){
                 palavraForca[i] = l;
+                letrasCertas.push(l);
             }
         }
-        letrasCertas.push(l);
     } 
     if (!palavra.includes(l)) {
         erros++;
