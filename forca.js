@@ -2,8 +2,7 @@ var jogando = false;
 var tecla;
 var erros = 0;
 var palavra;
-var letrasErradas = [];
-var letrasCertas = [];
+var palavraForca = [];
 
 function inicia () {
     if(usadas.length == palavras.length){
@@ -13,6 +12,7 @@ function inicia () {
         jogando = true;
         palavra = definePalavra();
         mostraPalavra();
+        console.log(palavra);
     }
     
     
@@ -53,7 +53,13 @@ function mostraPalavra(){
     palavraTela.innerHTML = "";
 
     for(var i = 0; i < palavra.length; i++){
-        palavraTela.appendChild("letra", "palavra[i]");
+        if (palavraForca[i] == undefined){
+            palavraForca[i] = "&nbsp;"; // ascii html da tecla espaço
+            palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letra'>"+ palavraForca[i] +"</div>";
+        }
+        else{
+            palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letra'>"+ palavraForca[i] +"</div>";
+        }
     }
 }
 
