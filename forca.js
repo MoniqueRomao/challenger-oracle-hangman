@@ -1,5 +1,4 @@
 var jogando = false;
-var tecla;
 var erros = 0;
 var palavra;
 var palavraForca = [];
@@ -18,13 +17,16 @@ function inicia () {
     
 };
 
-function verificaTecla(){
+function verificaTecla(l){
     if (jogando){
-        var char = event.keyCode;
-        if (char >= 65 && char <= 90){
-            tecla = String.fromCharCode(char);
-            comparaPalavra();
-        }
+        mudandoCorTecla("tecla-" + l);
+        
+    }
+}
+
+function mudandoCorTecla(tecla){
+    if(erros < 6){
+        document.getElementById(tecla).style.background = "#831d1c";
     }
 }
 
@@ -40,8 +42,6 @@ function comparaPalavra() {
     } 
     if (!palavra.includes(l) && !letrasErradas.includes(l)) {
         erros++;
-        letraIncorreta(l, erros);
-        letrasErradas.push(l);
         erroDesenha();
     }
     if (palavra.length == letrasCertas.length){
