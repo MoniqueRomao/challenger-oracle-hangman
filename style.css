@@ -18,6 +18,46 @@
 
 }
 
+.menu{
+  margin: 0;
+  padding: 0;
+}
+
+#check{
+  display: none;
+}
+
+#icone{
+  cursor: pointer;
+  padding: 15px;
+  position: absolute;
+  z-index: 1;
+}
+
+.barra{
+  background-color: #556b2f;
+  height: 100%;
+  width: 300px;
+  position: absolute;
+  transition: all 0.2s linear;
+  left: -300px;
+}
+
+nav{
+  width: 100%;
+  position: absolute;
+  top: 100px;
+}
+
+#nova-palavra{
+  width: 70%;
+  margin-left: 40px;
+}
+
+#check:checked ~ .barra{
+  transform: translateX(300px);
+}
+
 #imagem{
   width: 436px;
   height: 338px;
@@ -27,6 +67,7 @@
   background-repeat: no-repeat;
   margin-bottom: 40px;
 }
+
 #palavra-secreta{
   display: flex;
   justify-content: center;
@@ -46,11 +87,13 @@
   margin-left: 7px;
   margin-bottom: 20px;
 }
+
 #teclado{
   margin-top: 40px;
   margin-bottom: 50px;
   font-family: 'Courier Prime', monospace;
 }
+
 .teclas button{
   width: 44px;
   height: 44px;
@@ -63,9 +106,11 @@
   background-color: #556b2f;
   color: #f3f2e9;
 }
+
 .teclas button:hover{
   transform:scale(1.3);
 }
+
 .btn {
   border: 0;
   color: rgb(230, 230, 230);
@@ -82,11 +127,12 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   display: block;
   padding: 0.5em;
-  width: 30%;
+  width: 70%;
   height: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 35px;
+  font-family: 'Courier Prime', monospace;
 }
+
 #forca {
   border: 1px solid red;
   display: block;

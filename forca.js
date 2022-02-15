@@ -85,6 +85,9 @@ function erroDesenha(){
         case 6: 
             document.getElementById("imagem").style.background = "url('./img/forca_pernaEsquerda.png')";
             break;
+        default:
+            document.getElementById("imagem").style.background = "url('./img/forca.png')";
+            break;
     }
 }
 
@@ -94,6 +97,7 @@ function perdeu(){
         var l = palavra[i];
     };
     letrasCertas = [];
+    palavraForca = [];
     erros = 0;
     jogando = false;
     alert("Game Over");
@@ -101,6 +105,7 @@ function perdeu(){
 
 function venceu(){
     letrasCertas = [];
+    palavraForca = [];
     erros = 0;
     jogando = false;
     alert("Você venceu!");
