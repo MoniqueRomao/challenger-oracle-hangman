@@ -6,8 +6,8 @@ var letrasCertas = [];
 
 function inicia () {
     if(usadas.length == palavras.length){
-        alert("Todas as palavras foram usadas");
-        return location.reload(true);
+        alert("Todas as palavras foram usadas");  //chama as listas declaradas em palavraScreta.js
+        return location.reload(true);  // se forem iguais a página é recarregada
     } else{
         jogando = true;
         palavra = definePalavra();
@@ -34,24 +34,24 @@ function mudandoCorTecla(tecla){
 }
 
 function comparaPalavra(l) {
-    if(palavra.includes(l)) {
+    if(palavra.includes(l)) { //verifica acerto
         for (var i = 0; i < palavra.length; i++){
             if(palavra[i] == l){
-                palavraForca[i] = l;
+                palavraForca[i] = l; // usa a lista e índice para atribuir a letra ao HTML
                 letrasCertas.push(l);
             }
         }
     } 
-    if (!palavra.includes(l)) {
+    if (!palavra.includes(l)) { //verifica erro
         erros++;
         erroDesenha();
     }
-    if (palavra.length == letrasCertas.length){
+    if (palavra.length == letrasCertas.length){ //verifica se o jogadador venceu
         venceu();
     }
 }
 function mostraPalavra(){
-    const palavraTela = document.querySelector("#palavra-secreta");
+    const palavraTela = document.querySelector("#palavra-secreta"); //desenha os traços usando o HTML
     palavraTela.innerHTML = "";
 
     for(var i = 0; i < palavra.length; i++){
@@ -66,7 +66,7 @@ function mostraPalavra(){
 }
 
 function erroDesenha(){
-    switch(erros){
+    switch(erros){ //se baseia no valor da var de parâmetro para exibir as imagens 
         case 1: 
             document.getElementById("imagem").style.background = "url('./img/forca_cabeca.png')";
             break;
@@ -92,9 +92,7 @@ function perdeu(){
 
     for (var i = 0; i < palavra.length; i++){
         var l = palavra[i];
-        exibePalavra(l, i);
     };
-    letrasErradas = [];
     letrasCertas = [];
     erros = 0;
     jogando = false;
@@ -102,7 +100,6 @@ function perdeu(){
 }
 
 function venceu(){
-    letrasErradas = [];
     letrasCertas = [];
     erros = 0;
     jogando = false;
