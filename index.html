@@ -8,13 +8,19 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body class="bg">
+    <div class="menu">
+      <input type="checkbox" id="check">
+      <label id="icone" for="check"><img src="./img/menu (1).png"></label>
+      <div class="barra">
+        <nav>
+          <input class="text-input" type="text" id="input-nova-palavra" placeholder="Escreva uma nova palavra">
+          <button class="btn" id="nova-palavra" onclick="adicionaPalavra()">ADICIONAR PALAVRA</button>  
+        </nav>
+      </div>
+    </div>
     <div class="container">
       <div style="text-align:center; margin: 50px 0px;">
         <button class="btn" id="iniciar-jogo" onclick="inicia()">INICIAR JOGO</button>
-      </div>
-      <div style="text-align:center">
-        <input class="text-input" type="text" id="input-nova-palavra" placeholder="Escreva uma nova palavra">
-        <button class="btn" id="nova-palavra" onclick="adicionaPalavra()">ADICIONAR PALAVRA</button> 
       </div>
       <div id="imagem">
       
