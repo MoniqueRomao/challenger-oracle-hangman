@@ -1,18 +1,22 @@
 var jogando = false;
-var erros = 0;
+var erros;
 var palavra;
 var palavraForca = [];
 var letrasCertas = [];
+var teclasUsadas = [];
 
 function inicia () {
+    erros = 0;
+    palavraForca = [];
+    teclasPressionadas();
     if(usadas.length == palavras.length){
         alert("Todas as palavras foram usadas");  //chama as listas declaradas em palavraScreta.js
-        return location.reload(true);  // se forem iguais a página é recarregada
+        return location.reload();  //se forem iguais a página é recarregada
     } else{
         jogando = true;
         palavra = definePalavra();
         mostraPalavra()
-        console.log(palavra);
+        erroDesenha();
     }
     
     
@@ -20,18 +24,21 @@ function inicia () {
 
 function verificaTecla(l){
     if (jogando){
+        teclasUsadas.push(l);
         document.getElementById("tecla-" + l).disabled = true; //trava letras clicadas
         mudandoCorTecla("tecla-" + l);
         comparaPalavra(l);
         mostraPalavra();
+    } else {
+        alert("Você não iniciou o jogo");
     }
-}
+};
 
 function mudandoCorTecla(tecla){
     if(erros < 6){
         document.getElementById(tecla).style.background = "#831d1c"; //tecla na cor marsala
     }
-}
+};
 
 function comparaPalavra(l) {
     if(palavra.includes(l)) { //verifica acerto
@@ -49,7 +56,8 @@ function comparaPalavra(l) {
     if (palavra.length == letrasCertas.length){ //verifica se o jogadador venceu
         venceu();
     }
-}
+};
+
 function mostraPalavra(){
     const palavraTela = document.querySelector("#palavra-secreta"); //desenha os traços usando o HTML
     palavraTela.innerHTML = "";
@@ -63,10 +71,13 @@ function mostraPalavra(){
             palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letra'>"+ palavraForca[i] +"</div>";
         }
     }
-}
+};
 
 function erroDesenha(){
     switch(erros){ //se baseia no valor da var de parâmetro para exibir as imagens 
+        case 0: 
+            document.getElementById("imagem").style.background = "url('./img/forca.png')";
+            break;
         case 1: 
             document.getElementById("imagem").style.background = "url('./img/forca_cabeca.png')";
             break;
@@ -84,34 +95,36 @@ function erroDesenha(){
             break;
         case 6: 
             document.getElementById("imagem").style.background = "url('./img/forca_pernaEsquerda.png')";
-            break;
-        default:
-            document.getElementById("imagem").style.background = "url('./img/forca.png')";
+            perdeu();
             break;
     }
-}
+};
+
+function teclasPressionadas(){ //reseta o teclado
+    for(var i = 0; i < teclasUsadas.length; i++){
+        var t = teclasUsadas[i];
+        var tecla = "tecla-" + t;
+        document.getElementById(tecla).style.background = "#556b2f";
+        document.getElementById(tecla).disabled = false;
+
+    }
+    teclasUsadas = [];
+};
 
 function perdeu(){
-
-    for (var i = 0; i < palavra.length; i++){
-        var l = palavra[i];
-    };
     letrasCertas = [];
-    palavraForca = [];
-    erros = 0;
     jogando = false;
-    alert("Game Over");
-}
+    alert("Não foi desta vez, a palavra era " + palavra);
+
+};
 
 function venceu(){
     letrasCertas = [];
-    palavraForca = [];
-    erros = 0;
     jogando = false;
     alert("Você venceu!");
-}
+};
 
 function adicionaPalavra(){
     var adiciona = document.querySelector("#input-nova-palavra").value;
     palavras.push(adiciona.toUpperCase());
-}
+};
